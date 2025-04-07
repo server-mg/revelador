@@ -1,0 +1,7 @@
+{
+  "contatos_ocultos": ["João 🕵️", "Cliente 2"],
+  "apps_suspeitos": ["Vault", "KeepSafe"],
+  "eventos": ["mensagem apagada", "foto editada"],
+  "ambiente": {"wifi": "HIDDEN", "hora": "11:59", "local": "desconhecido"},
+  "risco_detectado": true
+}
