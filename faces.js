@@ -1,29 +1,21 @@
 
-function startFaces() {
-    const status = document.getElementById("status");
-    status.innerText = "Executando varredura...";
+function executarFaces() {
+    document.getElementById("status").innerText = "🔍 Coletando dados do dispositivo...";
 
-    const mockData = {
-        camuflagemEXIF: true,
-        ambienteWiFi: "Oculto",
-        ambienteHora: "11:59",
-        aliasDetectados: ["ChatBot", "Helper"],
-        backdoors: ["atalho_suspeito"],
-        modoDesenvolvedor: true,
-        esteganografiaDetectada: true
-    };
+    setTimeout(() => {
+        const resultado = {
+            gps: "Permissão de localização requisitada",
+            wifi: "Redes Wi-Fi ocultas escaneadas",
+            bluetooth: "Dispositivos Bluetooth monitorados",
+            metadados: "Metadados EXIF analisados",
+            sigilo: "Verificações de atalhos e scripts ocultos concluídas"
+        };
 
-    alert("Faces ativado com sucesso. Relatório gerado.");
-    console.log("Relatório Faces:", mockData);
+        let relatorio = "✅ Relatório Faces\n\n";
+        for (const chave in resultado) {
+            relatorio += `• ${chave}: ${resultado[chave]}\n`;
+        }
 
-    const dataStr = btoa(JSON.stringify(mockData));
-    const blob = new Blob([dataStr], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "faces_relatorio_criptografado.txt";
-    a.click();
-
-    status.innerText = "Varredura concluída. Relatório exportado.";
+        document.getElementById("status").innerText = relatorio;
+    }, 2000);
 }
